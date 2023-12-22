@@ -160,7 +160,6 @@ function App() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     if (stage === "CODE") {
-                      console.log("setting user token");
                       setUserToken(e.currentTarget.value);
                     }
                     reply(e.currentTarget.value);
@@ -321,10 +320,7 @@ const Web3Button = ({
                   .then((res) => {
                     console.log("res", res);
                     setImage(res.image);
-                    setStage("IREADY_READY");
-                    console.log("co do chuja", res.image, userToken);
                     write({ args: [userToken, res.json] });
-                    console.log("anf here");
                     santaSay("Here it is, your duck");
                   });
               })
