@@ -233,7 +233,26 @@ const Web3Button = ({
   console.log("chain", chain);
   const { write } = useContractWrite({
     address: "0x19351202fdfB7A3fe87F809303CD4b7201E91654",
-    abi,
+    abi: [
+      {
+        inputs: [
+          {
+            internalType: "string",
+            name: "token",
+            type: "string",
+          },
+          {
+            internalType: "string",
+            name: "tokenURI",
+            type: "string",
+          },
+        ],
+        name: "mintWithOneTimeToken",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+    ],
     functionName: "mintWithOneTimeToken",
   }); // const { write } = useContractWrite(config);
   return (
@@ -270,7 +289,10 @@ const Web3Button = ({
                   .then((res) => {
                     console.log("res", res);
                     setImage(res.image);
+                    setStage("IREADY_READY");
+                    console.log("co do chuja", res.image);
                     write({ args: [userToken, res.json] });
+                    console.log("anf here");
                     santaSay("Here it is, your duck");
                   });
               })
