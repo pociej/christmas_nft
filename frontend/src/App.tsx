@@ -75,14 +75,14 @@ function App() {
         </motion.div>
         <div className="card flex justify-center items-center">
           <div className="w-4/12 mt-10">
-            {conversation.map(({ from, message }: Message) => {
+            {conversation.map(({ from, message }: Message, index: number) => {
               if (from === "chat") {
                 return (
                   <motion.div
                     className="chat chat-start"
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.5 }}
+                    transition={{ duration: index === 0 ? 1.5 : 0 }}
                   >
                     <div className="chat-image avatar">
                       <div className="w-10 rounded-full">
@@ -169,7 +169,7 @@ function App() {
                 }}
               />
             )}
-          {stage !== "FINISH" ? (
+          {stage === "FINISH" ? (
             <Web3Button
               userToken={userToken}
               setStage={setStage}
