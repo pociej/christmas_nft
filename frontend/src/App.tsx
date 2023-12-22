@@ -12,7 +12,6 @@ import { WagmiConfig, useNetwork } from "wagmi";
 import { polygon } from "viem/chains";
 
 import { useContractWrite } from "wagmi";
-import abi from "./abi.json";
 import { useAccount } from "wagmi";
 import { switchNetwork } from "@wagmi/core";
 // 1. Get projectId at https://cloud.walletconnect.com
