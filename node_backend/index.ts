@@ -41,6 +41,8 @@ app.get("/replyToWish", async (req, res) => {
     apiKey: process.env.OPENAI_API_KEY,
   });
 
+  // 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
+
   const completion = await openai.chat.completions.create({
     messages: [
       {
@@ -67,7 +69,7 @@ app.get("/getImage", async (req, res) => {
   console.log("token", user);
   if (user) {
     const openai = new OpenAI({
-      apiKey: "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",
+      apiKey: process.env.OPENAI_API_KEY,
     });
     const response = await openai.images.generate({
       model: "dall-e-3",
