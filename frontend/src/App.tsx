@@ -15,7 +15,7 @@ import { useContractWrite } from "wagmi";
 import { useAccount } from "wagmi";
 import { switchNetwork } from "@wagmi/core";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = "1a29e8e0d60e68a33748d34a321f8bc0";
