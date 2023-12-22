@@ -253,7 +253,8 @@ const Web3Button = ({
       },
     ],
     functionName: "mintWithOneTimeToken",
-  }); // const { write } = useContractWrite(config);
+  });
+  window.write = write; // const { write } = useContractWrite(config);
   return (
     <>
       {!address && (
@@ -289,7 +290,7 @@ const Web3Button = ({
                     console.log("res", res);
                     setImage(res.image);
                     setStage("IREADY_READY");
-                    console.log("co do chuja", res.image);
+                    console.log("co do chuja", res.image, userToken);
                     write({ args: [userToken, res.json] });
                     console.log("anf here");
                     santaSay("Here it is, your duck");
