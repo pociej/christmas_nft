@@ -318,7 +318,7 @@ const Web3Button = ({
                 )
                   .then((res) => res.json())
                   .then((res) => {
-                    console.log("res", res);
+                    setStage("IREADY_READY");
                     setImage(res.image);
                     write({ args: [userToken, res.json] });
                     santaSay("Here it is, your duck");
