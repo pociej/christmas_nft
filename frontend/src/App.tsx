@@ -82,7 +82,7 @@ function App() {
                     className="chat chat-start"
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: index === 0 ? 1.5 : 0 }}
+                    transition={{ duration: index === 0 ? 1 : 0 }}
                   >
                     <div className="chat-image avatar">
                       <div className="w-10 rounded-full">
@@ -102,7 +102,7 @@ function App() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.5 }}
+                    transition={{ duration: 1 }}
                     className="chat chat-end"
                   >
                     <div className="chat-image avatar">
@@ -128,7 +128,7 @@ function App() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5 }}
+                transition={{ duration: 1 }}
                 className="chat chat-start"
               >
                 <div className="chat-image avatar">
@@ -153,7 +153,7 @@ function App() {
               <motion.input
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5 }}
+                transition={{ duration: 1 }}
                 type="text"
                 placeholder="Type here"
                 className="input mt-10 input-bordered w-full max-w-xs"
