@@ -14,6 +14,9 @@ import { polygon } from "viem/chains";
 import { useContractWrite } from "wagmi";
 import { useAccount } from "wagmi";
 import { switchNetwork } from "@wagmi/core";
+
+import { AnimatePresence, motion } from "framer-motion";
+
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = "1a29e8e0d60e68a33748d34a321f8bc0";
 // 2. Create wagmiConfig
@@ -60,17 +63,27 @@ function App() {
         <div className="snow layer2"></div>
         <div className="snow layer3 a"></div>
         <div className="snow layer3"></div>
-        <div className="pt-24 flex items-center justify-center">
+        <motion.div
+          className="pt-24 flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+        >
           <div className="w-80 ">
             <img src="golem.xmas.png" />
           </div>
-        </div>
+        </motion.div>
         <div className="card flex justify-center items-center">
           <div className="w-4/12 mt-10">
             {conversation.map(({ from, message }: Message) => {
               if (from === "chat") {
                 return (
-                  <div className="chat chat-start">
+                  <motion.div
+                    className="chat chat-start"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                  >
                     <div className="chat-image avatar">
                       <div className="w-10 rounded-full">
                         <img
@@ -82,11 +95,16 @@ function App() {
                     <div className="chat-bubble chat-bubble-primary">
                       {message}
                     </div>
-                  </div>
+                  </motion.div>
                 );
               } else {
                 return (
-                  <div className="chat chat-end">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    className="chat chat-end"
+                  >
                     <div className="chat-image avatar">
                       <div className="w-10 rounded-full">
                         <img
@@ -102,12 +120,17 @@ function App() {
                     <div className="chat-bubble chat-bubble-error">
                       {message}
                     </div>
-                  </div>
+                  </motion.div>
                 );
               }
             })}
             {isProcessing && (
-              <div className="chat chat-start">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5 }}
+                className="chat chat-start"
+              >
                 <div className="chat-image avatar">
                   <div className="w-10 rounded-full">
                     <img
@@ -119,7 +142,7 @@ function App() {
                 <div className="chat-bubble chat-bubble-primary">
                   <div className="dot-typing ml-4 mr-4 mt-2"></div>
                 </div>
-              </div>
+              </motion.div>
             )}
           </div>
 
@@ -127,7 +150,10 @@ function App() {
             stage !== "FINISH" &&
             stage !== "IMAGE_GENERATING" &&
             stage !== "IREADY_READY" && (
-              <input
+              <motion.input
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5 }}
                 type="text"
                 placeholder="Type here"
                 className="input mt-10 input-bordered w-full max-w-xs"
@@ -143,7 +169,7 @@ function App() {
                 }}
               />
             )}
-          {stage === "FINISH" ? (
+          {stage !== "FINISH" ? (
             <Web3Button
               userToken={userToken}
               setStage={setStage}
@@ -271,7 +297,10 @@ const Web3Button = ({
         </button>
       )}
       {address && (
-        <button
+        <motion.button
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
           className="btn btn-primary mt-10"
           onClick={() => {
             console.log("clicked");
@@ -305,7 +334,7 @@ const Web3Button = ({
           }}
         >
           Mint
-        </button>
+        </motion.button>
       )}
     </>
   );
