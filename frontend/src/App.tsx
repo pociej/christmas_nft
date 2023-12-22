@@ -254,7 +254,10 @@ const Web3Button = ({
     ],
     functionName: "mintWithOneTimeToken",
   });
-  window.write = write; // const { write } = useContractWrite(config);
+  //
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
+  window["write"] = write; // const { write } = useContractWrite(config);
   return (
     <>
       {!address && (
