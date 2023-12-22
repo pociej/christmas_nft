@@ -38,7 +38,7 @@ app.get("/replyToWish", async (req, res) => {
   const wish = req.query.wish as string;
   console.log("wish", wish);
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
   });
 
   const completion = await openai.chat.completions.create({
