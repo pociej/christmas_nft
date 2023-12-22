@@ -5,7 +5,7 @@ body {
 
 .wrapper {
   width: 100vw;
-  height: 100%;
+  height: 120vw;
   background: radial-gradient(farthest-corner at 30vw 20vh, #031d4c 1%, #491179 100%);
 }
 
